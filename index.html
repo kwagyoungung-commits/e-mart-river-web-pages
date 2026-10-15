@@ -3,122 +3,436 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>이마트 리버점 주말 삼겹살 프로모션</title>
+  <title>이마트 리버점 주말 장보기 삼겹살 2,000원 할인 프로모션</title>
+  <meta name="description" content="이마트 리버점 단독! 국내산 삼겹살 500g 35,000원 이상 구매 시 2,000원 즉시 할인. 11월 7·8·14·15일 주말 한정." />
+  <meta name="keywords" content="이마트 리버점, 삼겹살 할인, 주말 프로모션, 장보기 이벤트" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- 1. Header & D-Day Countdown -->
-  <header class="site-header">
-    <div class="logo">이마트 리버점</div>
-    <nav class="gnb">
-      <a href="#benefit">혜택</a>
-      <a href="#howto">참여방법</a>
-      <a href="#calculator">장바구니 계산기</a>
-      <a href="#gallery">갤러리</a>
-      <a href="#location">오시는 길</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <div class="countdown" id="countdown">
-      <span id="days">00</span>D <span id="hours">00</span>H <span id="minutes">00</span>M <span id="seconds">00</span>S
+
+  <!-- ① GNB 헤더 & D-Day 카운트다운 -->
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <span class="logo-icon">E</span>
+        <div class="logo-text">
+          <span class="logo-brand">이마트</span>
+          <span class="logo-badge">리버점 단독</span>
+        </div>
+      </div>
+
+      <nav class="gnb" id="gnb">
+        <a href="#benefit" class="gnb-link">행사안내</a>
+        <a href="#how-to" class="gnb-link">할인방법</a>
+        <a href="#calculator" class="gnb-link">장바구니 계산기</a>
+        <a href="#gallery" class="gnb-link">카드뉴스</a>
+        <a href="#location" class="gnb-link">오시는길</a>
+        <a href="#faq" class="gnb-link">FAQ</a>
+      </nav>
+
+      <div class="countdown-wrap" id="countdown-wrap">
+        <div class="countdown-label">행사 시작까지</div>
+        <div class="countdown-timer" id="countdown">
+          <div class="cd-unit"><span id="cd-days">--</span><small>일</small></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><span id="cd-hours">--</span><small>시</small></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><span id="cd-mins">--</span><small>분</small></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><span id="cd-secs">--</span><small>초</small></div>
+        </div>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <!-- 2. Hero Section -->
-  <section class="hero" id="hero">
-    <img src="../삼겹살_주말_프로모션_포스터_제작_20261015091849%20(1).jpg" alt="프로모션 포스터" class="hero-img" />
-    <h1>주말 삼겹살 2,000원 할인!</h1>
-    <p>35,000원 이상 구매 시 2,000원 즉시 할인</p>
-    <a href="#calculator" class="cta-btn">장바구니 계산하기</a>
-  </section>
-
-  <!-- 3. Benefit Card -->
-  <section class="benefit" id="benefit">
-    <h2>가격 비교</h2>
-    <div class="price-card">
-      <div class="price-original">정상가: <del>13,900원</del></div>
-      <div class="price-discount">혜택가: <strong>11,900원</strong> <span class="badge">2,000원 할인</span></div>
-      <p class="condition">※ 할인 적용 조건: 결제 전 35,000원 이상</p>
-    </div>
-  </section>
-
-  <!-- 4. 3-Step Guide -->
-  <section class="howto" id="howto">
-    <h2>할인받는 3가지 단계</h2>
-    <ol class="steps">
-      <li>35,000원 이상 장바구니에 담는다.</li>
-      <li>FR-201 삼겹살 500g 1팩을 선택한다.</li>
-      <li>계산대에서 2,000원 즉시 할인을 적용받는다.</li>
-    </ol>
-  </section>
-
-  <!-- 5. Calculator -->
-  <section class="calculator" id="calculator">
-    <h2>35,000원 장바구니 계산기</h2>
-    <div class="calculator-card">
-      <div class="progress-wrapper">
-        <div class="progress-bar" id="progress-bar"></div>
-        <div class="progress-text" id="progress-text">0 / 35,000원</div>
+  <!-- ② 히어로 섹션 -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-inner">
+      <div class="hero-image-wrap reveal-section">
+        <img
+          src="../삼겹살_주말_프로모션_포스터_제작_20261015091849 (1).jpg"
+          alt="이마트 리버점 삼겹살 주말 프로모션 포스터"
+          class="hero-poster"
+          id="hero-poster"
+        />
       </div>
-      <ul class="pairing-list" id="pairing-list">
-        <!-- JS will populate items -->
-      </ul>
-      <div class="summary" id="summary">
-        <p>총 합계: <span id="total-price">13,900</span>원</p>
-        <p id="discount-msg">할인 미적용</p>
-        <button class="copy-btn" id="copy-btn">목록 복사</button>
+      <div class="hero-content reveal-section">
+        <div class="hero-tags">
+          <span class="tag">#리버점단독</span>
+          <span class="tag">#국내산500g</span>
+          <span class="tag">#주말4일간</span>
+        </div>
+        <h1 class="hero-title">삼겹살 <em class="highlight-red">2,000원</em> 할인!</h1>
+        <p class="hero-sub">35,000원 이상 구매 시 즉시 할인 적용</p>
+        <div class="hero-dates">
+          <span>🗓 11/7(토)·8(일)</span>
+          <span>🗓 11/14(토)·15(일)</span>
+        </div>
+        <div class="hero-cta-group">
+          <a href="#calculator" class="btn btn-primary" id="hero-calc-btn">🛒 35,000원 계산하기</a>
+          <a href="#gallery" class="btn btn-outline" id="hero-gallery-btn">카드뉴스 보기</a>
+        </div>
       </div>
     </div>
+    <div class="hero-scroll-hint">
+      <span>스크롤</span>
+      <div class="scroll-arrow"></div>
+    </div>
   </section>
 
-  <!-- 6. Gallery -->
-  <section class="gallery" id="gallery">
-    <h2>프로모션 이미지</h2>
-    <div class="carousel" id="carousel">
-      <button class="carousel-btn prev" id="prevBtn">◀</button>
-      <div class="carousel-track" id="carousel-track">
-        <img src="../카드뉴스%201장%20수정.jpeg" alt="카드뉴스 1" class="carousel-item" />
-        <img src="../카드뉴스%202장.jpeg" alt="카드뉴스 2" class="carousel-item" />
-        <img src="../카드뉴스%203장_수정.png" alt="카드뉴스 3" class="carousel-item" />
-        <img src="../카드뉴스%204장.png" alt="카드뉴스 4" class="carousel-item" />
-        <img src="../카드%20뉴스%205장%20최종%20수정.jpg" alt="카드뉴스 5" class="carousel-item" />
+  <!-- ③ 혜택 하이라이트 (정상가 vs 혜택가) -->
+  <section class="benefit-section reveal-section" id="benefit">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">PRICE HIGHLIGHT</span>
+        <h2 class="section-title">핵심 혜택 한눈에 보기</h2>
       </div>
-      <button class="carousel-btn next" id="nextBtn">▶</button>
+      <div class="benefit-cards">
+        <div class="price-compare-card">
+          <div class="price-tag original">
+            <span class="price-label">정상가</span>
+            <span class="price-value"><del>13,900<small>원</small></del></span>
+          </div>
+          <div class="price-arrow">▶</div>
+          <div class="price-tag discount">
+            <span class="price-label">혜택가</span>
+            <span class="price-value">11,900<small>원</small></span>
+            <span class="save-badge">2,000원 SAVE</span>
+          </div>
+        </div>
+        <div class="benefit-info-cards">
+          <div class="info-card">
+            <div class="info-icon">🏪</div>
+            <div class="info-body">
+              <strong>행사 점포</strong>
+              <p>이마트 리버점 단독</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📅</div>
+            <div class="info-body">
+              <strong>행사 기간</strong>
+              <p>11/7~8 · 14~15 (주말)</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🥩</div>
+            <div class="info-body">
+              <strong>대상 품목</strong>
+              <p>국내산 삼겹살 500g (FR-201)</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">💳</div>
+            <div class="info-body">
+              <strong>적용 조건</strong>
+              <p>결제 전 35,000원 이상</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 7. Location & Schedule -->
-  <section class="location" id="location">
-    <h2>행사 일정 & 매장 안내</h2>
-    <ul class="schedule">
-      <li>🗓 2026‑11‑07 (토) ~ 11‑08 (일)</li>
-      <li>🗓 2026‑11‑14 (토) ~ 11‑15 (일)</li>
-    </ul>
-    <p>주소: 이마트 리버점 (서울시 강남구 …)</p>
-    <a href="https://map.kakao.com/?q=이마트%20리버점" target="_blank" class="map-link">카카오맵으로 보기</a>
+  <!-- ④ 3단계 할인 가이드 -->
+  <section class="step-guide-section reveal-section" id="how-to">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">HOW TO GET DISCOUNT</span>
+        <h2 class="section-title">3단계 할인 받는 법</h2>
+      </div>
+      <div class="steps-wrap">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-icon">🛒</div>
+          <h3 class="step-title">35,000원 이상 담기</h3>
+          <p class="step-desc">할인 전 결제 금액 기준으로 35,000원 이상 장바구니에 담으세요.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-icon">🥩</div>
+          <h3 class="step-title">삼겹살 1팩 선택</h3>
+          <p class="step-desc">국내산 삼겹살 500g(상품코드: FR-201) 1팩을 장바구니에 담으세요.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-icon">✅</div>
+          <h3 class="step-title">계산대 즉시 할인</h3>
+          <p class="step-desc">계산대 결제 시 2,000원이 자동으로 즉시 할인됩니다!</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- 8. FAQ -->
-  <section class="faq" id="faq">
-    <h2>자주 묻는 질문</h2>
-    <div class="faq-item">
-      <button class="faq-question">Q. 할인 적용 조건은 언제인가요?</button>
-      <div class="faq-answer">할인 전 결제 금액이 35,000원 이상이어야 하며, 영수증당 삼겹살 1팩만 할인됩니다.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Q. 다른 쿠폰과 중복 사용이 가능한가요?</button>
-      <div class="faq-answer">타 프로모션·쿠폰과 중복 적용이 불가합니다.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Q. 다른 매장에서도 동일 혜택을 받을 수 있나요?</button>
-      <div class="faq-answer">본 행사는 이마트 리버점 전용이며, 타 점포에서는 적용되지 않습니다.</div>
+  <!-- ⑤ [핵심] 35,000원 장바구니 계산기 -->
+  <section class="calculator-section reveal-section" id="calculator">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">SHOPPING SIMULATOR</span>
+        <h2 class="section-title">삼겹살 꿀조합 35,000원 계산기</h2>
+        <p class="section-desc">아래 연계 상품을 담아 35,000원을 채우면 2,000원 즉시 할인!</p>
+      </div>
+
+      <div class="calculator-card">
+        <!-- 프로그레스 바 -->
+        <div class="progress-area">
+          <div class="progress-header">
+            <span class="progress-label">현재 장바구니 금액</span>
+            <span class="progress-amount" id="progress-amount">13,900원</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progress-bar"></div>
+          </div>
+          <div class="progress-footer">
+            <span class="progress-current" id="progress-current-text">13,900원</span>
+            <span class="progress-goal">목표: 35,000원</span>
+          </div>
+        </div>
+
+        <!-- 상태 메시지 -->
+        <div class="status-msg" id="status-msg">
+          <span id="status-text">🛒 <strong id="remain-amount">21,100원</strong> 더 담으면 2,000원 즉시 할인!</span>
+        </div>
+
+        <!-- 기본 상품 (필수) -->
+        <div class="base-item">
+          <div class="base-item-icon">🥩</div>
+          <div class="base-item-info">
+            <strong>국내산 삼겹살 500g (FR-201)</strong>
+            <span class="required-badge">필수 포함</span>
+          </div>
+          <div class="base-item-price">13,900원</div>
+        </div>
+
+        <!-- 연계 상품 리스트 -->
+        <div class="pairing-section">
+          <h3 class="pairing-title">🍽 함께 담으면 좋은 꿀조합</h3>
+          <ul class="pairing-list" id="pairing-list"></ul>
+        </div>
+
+        <!-- 요약 & CTA -->
+        <div class="cart-summary" id="cart-summary">
+          <div class="summary-row">
+            <span>상품 합계</span>
+            <span id="total-raw">13,900원</span>
+          </div>
+          <div class="summary-row discount-row" id="discount-row">
+            <span>할인 금액</span>
+            <span class="discount-amount" id="discount-amount">-0원</span>
+          </div>
+          <div class="summary-row final-row">
+            <span>최종 결제 예정액</span>
+            <span class="final-price" id="final-price">13,900원</span>
+          </div>
+          <button class="btn btn-copy" id="copy-btn">📋 장보기 목록 복사</button>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 9. Floating CTA Bar -->
-  <aside class="floating-bar" id="floating-bar">
-    <span id="floating-status">0 / 35,000원</span>
-    <a href="#calculator" class="floating-cta">계산기 바로가기</a>
+  <!-- ⑥ 카드뉴스 & 포스터 갤러리 -->
+  <section class="gallery-section reveal-section" id="gallery">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">CARD NEWS &amp; POSTER</span>
+        <h2 class="section-title">프로모션 카드뉴스</h2>
+        <p class="section-desc">이미지를 클릭하면 크게 볼 수 있어요</p>
+      </div>
+
+      <div class="carousel-wrap">
+        <button class="carousel-arrow prev-arrow" id="prev-btn" aria-label="이전 슬라이드">&#8249;</button>
+        <div class="carousel-viewport" id="carousel-viewport">
+          <div class="carousel-track" id="carousel-track">
+            <div class="slide" data-src="../카드뉴스 1장 수정.jpeg" data-alt="카드뉴스 1장">
+              <img src="../카드뉴스 1장 수정.jpeg" alt="카드뉴스 1장" class="slide-img" loading="lazy" />
+              <div class="slide-overlay"><span>🔍 크게 보기</span></div>
+            </div>
+            <div class="slide" data-src="../카드뉴스 2장.jpeg" data-alt="카드뉴스 2장">
+              <img src="../카드뉴스 2장.jpeg" alt="카드뉴스 2장" class="slide-img" loading="lazy" />
+              <div class="slide-overlay"><span>🔍 크게 보기</span></div>
+            </div>
+            <div class="slide" data-src="../카드뉴스 3장_수정.png" data-alt="카드뉴스 3장">
+              <img src="../카드뉴스 3장_수정.png" alt="카드뉴스 3장" class="slide-img" loading="lazy" />
+              <div class="slide-overlay"><span>🔍 크게 보기</span></div>
+            </div>
+            <div class="slide" data-src="../카드뉴스 4장.png" data-alt="카드뉴스 4장">
+              <img src="../카드뉴스 4장.png" alt="카드뉴스 4장" class="slide-img" loading="lazy" />
+              <div class="slide-overlay"><span>🔍 크게 보기</span></div>
+            </div>
+            <div class="slide" data-src="../카드 뉴스 5장 최종 수정.jpg" data-alt="카드뉴스 5장">
+              <img src="../카드 뉴스 5장 최종 수정.jpg" alt="카드뉴스 5장" class="slide-img" loading="lazy" />
+              <div class="slide-overlay"><span>🔍 크게 보기</span></div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-arrow next-arrow" id="next-btn" aria-label="다음 슬라이드">&#8250;</button>
+      </div>
+
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
+  </section>
+
+  <!-- ⑦ 행사 일정 & 매장 안내 -->
+  <section class="schedule-location-section reveal-section" id="location">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">SCHEDULE &amp; LOCATION</span>
+        <h2 class="section-title">행사 일정 &amp; 매장 안내</h2>
+      </div>
+      <div class="schedule-location-grid">
+        <div class="calendar-wrap">
+          <h3 class="sub-title">📅 2026년 11월 행사 캘린더</h3>
+          <div class="calendar-grid" id="calendar-grid"></div>
+        </div>
+        <div class="store-info-wrap">
+          <h3 class="sub-title">📍 이마트 리버점 안내</h3>
+          <ul class="store-info-list">
+            <li>
+              <span class="store-icon">🏪</span>
+              <div>
+                <strong>점포명</strong>
+                <p>이마트 리버점</p>
+              </div>
+            </li>
+            <li>
+              <span class="store-icon">⏰</span>
+              <div>
+                <strong>영업시간</strong>
+                <p>10:00 ~ 23:00 (연중무휴)</p>
+              </div>
+            </li>
+            <li>
+              <span class="store-icon">📞</span>
+              <div>
+                <strong>행사 문의</strong>
+                <p>이마트 리버점 정육 코너</p>
+              </div>
+            </li>
+            <li>
+              <span class="store-icon">⚠️</span>
+              <div>
+                <strong>주의사항</strong>
+                <p>리버점 오프라인 결제 한정 적용</p>
+              </div>
+            </li>
+          </ul>
+          <a
+            href="https://map.kakao.com/?q=이마트%20리버점"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-map"
+            id="map-link"
+          >🗺 카카오맵으로 길찾기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑧ FAQ 아코디언 -->
+  <section class="faq-section reveal-section" id="faq">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">TERMS &amp; FAQ</span>
+        <h2 class="section-title">자주 묻는 질문</h2>
+      </div>
+      <div class="faq-list" id="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" id="faq-q1">
+            <span>Q. 할인 적용 조건은 무엇인가요?</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer" id="faq-a1">
+            <p>할인 전 결제 금액(정상가 기준) 기준으로 <strong>35,000원 이상</strong> 구매 시 국내산 삼겹살 500g 1팩에 한해 2,000원이 즉시 할인됩니다. 영수증 1건당 삼겹살 1팩만 할인 적용됩니다.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" id="faq-q2">
+            <span>Q. 다른 쿠폰·행사와 중복 사용이 가능한가요?</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer" id="faq-a2">
+            <p>본 프로모션은 <strong>타 행사 및 쿠폰과 중복 할인이 불가</strong>합니다. 가장 유리한 혜택 하나를 선택하여 적용하시기 바랍니다.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" id="faq-q3">
+            <span>Q. 온라인 / 다른 점포에서도 동일 혜택을 받을 수 있나요?</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer" id="faq-a3">
+            <p>본 행사는 <strong>이마트 리버점 오프라인 단독</strong>으로 진행되며, 온라인몰(이마트몰 등)이나 타 점포에서는 적용되지 않습니다.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" id="faq-q4">
+            <span>Q. 삼겹살을 여러 팩 사면 할인이 여러 번 적용되나요?</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer" id="faq-a4">
+            <p>영수증 1건당 삼겹살 <strong>1팩 한정</strong>으로 할인이 적용됩니다. 2팩 이상 구매하더라도 할인은 1팩에만 적용됩니다.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" id="faq-q5">
+            <span>Q. 35,000원을 맞추기 위해 어떤 상품을 함께 구매하면 좋나요?</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer" id="faq-a5">
+            <p>위 <strong>'삼겹살 꿀조합 35,000원 계산기'</strong>를 활용해 보세요! 상추·깻잎, 마늘, 쌈장, 김치 등 인기 연계 상품을 담으면 손쉽게 35,000원을 채울 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-icon small">E</span>
+        <span>이마트 리버점</span>
+      </div>
+      <p class="footer-disclaimer">※ 본 프로모션은 이마트 리버점 오프라인 단독 행사이며, 타 점포 및 온라인 적용 불가.<br />※ 행사 기간: 2026년 11월 7·8·14·15일 (주말 4일). 영수증 1건당 1팩 한정. 타 쿠폰 중복 불가.</p>
+      <p class="footer-copy">© 2026 이마트 리버점. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ⑨ 하단 플로팅 바 -->
+  <aside class="floating-bar" id="floating-bar" aria-label="장바구니 현황">
+    <div class="floating-inner">
+      <div class="floating-info">
+        <span class="floating-label">현재</span>
+        <span class="floating-amount" id="floating-amount">13,900원</span>
+        <span class="floating-sep">/</span>
+        <span class="floating-goal">35,000원</span>
+        <span class="floating-remain" id="floating-remain">(-21,100원)</span>
+      </div>
+      <a href="#calculator" class="btn btn-floating" id="floating-cta">계산기 바로가기</a>
+    </div>
   </aside>
+
+  <!-- 라이트박스 모달 -->
+  <div class="lightbox-modal" id="lightbox" role="dialog" aria-modal="true" aria-label="이미지 크게 보기">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close" aria-label="닫기">✕</button>
+      <img src="" alt="" class="lightbox-img" id="lightbox-img" />
+      <p class="lightbox-alt" id="lightbox-alt"></p>
+    </div>
+  </div>
+
+  <!-- 토스트 알림 -->
+  <div class="toast" id="toast"></div>
 
   <script src="app.js"></script>
 </body>
