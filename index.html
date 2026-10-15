@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이마트 리버점 주말 삼겹살 프로모션</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 1. Header & D-Day Countdown -->
+  <header class="site-header">
+    <div class="logo">이마트 리버점</div>
+    <nav class="gnb">
+      <a href="#benefit">혜택</a>
+      <a href="#howto">참여방법</a>
+      <a href="#calculator">장바구니 계산기</a>
+      <a href="#gallery">갤러리</a>
+      <a href="#location">오시는 길</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="countdown" id="countdown">
+      <span id="days">00</span>D <span id="hours">00</span>H <span id="minutes">00</span>M <span id="seconds">00</span>S
+    </div>
+  </header>
+
+  <!-- 2. Hero Section -->
+  <section class="hero" id="hero">
+    <img src="../삼겹살_주말_프로모션_포스터_제작_20261015091849%20(1).jpg" alt="프로모션 포스터" class="hero-img" />
+    <h1>주말 삼겹살 2,000원 할인!</h1>
+    <p>35,000원 이상 구매 시 2,000원 즉시 할인</p>
+    <a href="#calculator" class="cta-btn">장바구니 계산하기</a>
+  </section>
+
+  <!-- 3. Benefit Card -->
+  <section class="benefit" id="benefit">
+    <h2>가격 비교</h2>
+    <div class="price-card">
+      <div class="price-original">정상가: <del>13,900원</del></div>
+      <div class="price-discount">혜택가: <strong>11,900원</strong> <span class="badge">2,000원 할인</span></div>
+      <p class="condition">※ 할인 적용 조건: 결제 전 35,000원 이상</p>
+    </div>
+  </section>
+
+  <!-- 4. 3-Step Guide -->
+  <section class="howto" id="howto">
+    <h2>할인받는 3가지 단계</h2>
+    <ol class="steps">
+      <li>35,000원 이상 장바구니에 담는다.</li>
+      <li>FR-201 삼겹살 500g 1팩을 선택한다.</li>
+      <li>계산대에서 2,000원 즉시 할인을 적용받는다.</li>
+    </ol>
+  </section>
+
+  <!-- 5. Calculator -->
+  <section class="calculator" id="calculator">
+    <h2>35,000원 장바구니 계산기</h2>
+    <div class="calculator-card">
+      <div class="progress-wrapper">
+        <div class="progress-bar" id="progress-bar"></div>
+        <div class="progress-text" id="progress-text">0 / 35,000원</div>
+      </div>
+      <ul class="pairing-list" id="pairing-list">
+        <!-- JS will populate items -->
+      </ul>
+      <div class="summary" id="summary">
+        <p>총 합계: <span id="total-price">13,900</span>원</p>
+        <p id="discount-msg">할인 미적용</p>
+        <button class="copy-btn" id="copy-btn">목록 복사</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Gallery -->
+  <section class="gallery" id="gallery">
+    <h2>프로모션 이미지</h2>
+    <div class="carousel" id="carousel">
+      <button class="carousel-btn prev" id="prevBtn">◀</button>
+      <div class="carousel-track" id="carousel-track">
+        <img src="../카드뉴스%201장%20수정.jpeg" alt="카드뉴스 1" class="carousel-item" />
+        <img src="../카드뉴스%202장.jpeg" alt="카드뉴스 2" class="carousel-item" />
+        <img src="../카드뉴스%203장_수정.png" alt="카드뉴스 3" class="carousel-item" />
+        <img src="../카드뉴스%204장.png" alt="카드뉴스 4" class="carousel-item" />
+        <img src="../카드%20뉴스%205장%20최종%20수정.jpg" alt="카드뉴스 5" class="carousel-item" />
+      </div>
+      <button class="carousel-btn next" id="nextBtn">▶</button>
+    </div>
+  </section>
+
+  <!-- 7. Location & Schedule -->
+  <section class="location" id="location">
+    <h2>행사 일정 & 매장 안내</h2>
+    <ul class="schedule">
+      <li>🗓 2026‑11‑07 (토) ~ 11‑08 (일)</li>
+      <li>🗓 2026‑11‑14 (토) ~ 11‑15 (일)</li>
+    </ul>
+    <p>주소: 이마트 리버점 (서울시 강남구 …)</p>
+    <a href="https://map.kakao.com/?q=이마트%20리버점" target="_blank" class="map-link">카카오맵으로 보기</a>
+  </section>
+
+  <!-- 8. FAQ -->
+  <section class="faq" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <button class="faq-question">Q. 할인 적용 조건은 언제인가요?</button>
+      <div class="faq-answer">할인 전 결제 금액이 35,000원 이상이어야 하며, 영수증당 삼겹살 1팩만 할인됩니다.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Q. 다른 쿠폰과 중복 사용이 가능한가요?</button>
+      <div class="faq-answer">타 프로모션·쿠폰과 중복 적용이 불가합니다.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Q. 다른 매장에서도 동일 혜택을 받을 수 있나요?</button>
+      <div class="faq-answer">본 행사는 이마트 리버점 전용이며, 타 점포에서는 적용되지 않습니다.</div>
+    </div>
+  </section>
+
+  <!-- 9. Floating CTA Bar -->
+  <aside class="floating-bar" id="floating-bar">
+    <span id="floating-status">0 / 35,000원</span>
+    <a href="#calculator" class="floating-cta">계산기 바로가기</a>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
